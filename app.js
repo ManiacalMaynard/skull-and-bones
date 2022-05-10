@@ -25,8 +25,7 @@ const playerOne = createPlayer(name, symbol)
 
 // Function to decide randomly who goes first: player or computer. Sets global variable "whosTurn" for use with winStat(). Also displays who's turn on the game board with some className
 function whosFirst() {
-  let who = Math.floor(Math.random() * 2);
-  who === 0 ? playerTurn = 0 : playerTurn = 1 ; // this might be better firing either playerPlay() or computerPlay() instead
+  return Math.floor(Math.random() * 2) === 0 ? player : pirate ; // this might be better firing either playerPlay() or computerPlay() instead
 };
 
 // Builder function that populates the gameBoard div with 9 square divs wihtin, each with 0-8 as IDs and filled with the strings from the original array as it changes
