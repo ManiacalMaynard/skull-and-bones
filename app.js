@@ -27,20 +27,28 @@ const player = (playerName, playerSymbol) => {
 const gameBoard = (() => {
   // Function that sets Player Portrait to their symbol and sets AI portrait to opposite symbol
   const playerOneSymbol = document.getElementById('portrait-one')
+  playerOneSymbol.innerText = 'O' // playerOne.playerSymbol
   const playerTwoSymbol = document.getElementById('portrait-two')
+  playerTwoSymbol.innerText = playerOneSymbol.innerText == 'O' ? 'X' : 'O'
   // Store gameboard contents as an array
-  let squareContent = ['O', 'X', '-', '-', 'O', '-', '-', '-', '-']
-  // Create the gameboard into #game-board with a div for each square with squareContent index items
-  const createBoard = () => {
+  let squareContent = ['', 'O', 'O', '-', 'X', '-', 'X', 'X', '-']
+  // Create the gameboard with a div for each square from squareContent array
+  const createBoard = (() => {
     const board = document.getElementById('game-board')
-    squareContent.forEach( e => {
+    for (let i=0; i<9; i++) {
       let square = document.createElement('div')
-      square.innerText = e
+      square.innerText = squareContent[i].toString(i)
+      square.setAttribute('id', 'cell' + i)
+      square.addEventListener('click', (e) => { markSymbol(square.id) }) // NEEDS NEW CALL
       board.appendChild(square)
-    })
-  }
-  createBoard()
+    }
+  })()
   // Function allowing players to mark their symbol on the board, checking for emptiness
+  const markSymbol = (item) => {
+    item.innerText != '' ?
+    console.log(item) :
+    console.log('Failed') ;
+  }
   // Function that adds Reset / Play Again button
 })();
 
