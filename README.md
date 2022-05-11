@@ -8,9 +8,8 @@ Made by [Maynard](https://github.com/ManiacalMaynard/) for [The Odin Project](ht
 
 - [ ] Essential thematic design thumbnails
 - [ ] Create new artwork for skulls, bones, and other elements
-- [ ] Mobile first responsive layout - build as-if mobile app
+- [x] Mobile first responsive layout - build as-if mobile app
 
-- [ ] Start screen with basic rules explaining the game and player symbol choice
 - [ ] Player chooses Skulls or Bones to start the game
 - [ ] Play order is set by random (who goes first)
 
