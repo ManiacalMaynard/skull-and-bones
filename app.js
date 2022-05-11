@@ -31,7 +31,7 @@ const gameBoard = (() => {
   const playerTwoSymbol = document.getElementById('portrait-two')
   playerTwoSymbol.innerText = playerOneSymbol.innerText == 'O' ? 'X' : 'O'
   // Store gameboard contents as an array
-  let squareContent = ['', 'O', 'O', '-', 'X', '-', 'X', 'X', '-']
+  let squareContent = ['', 'O', ' ', ' ', 'X', ' ', ' ', ' ', 'X']
   // Create the gameboard with a div for each square from squareContent array
   const createBoard = (() => {
     const board = document.getElementById('game-board')
@@ -39,16 +39,16 @@ const gameBoard = (() => {
       let square = document.createElement('div')
       square.innerText = squareContent[i].toString(i)
       square.setAttribute('id', 'cell' + i)
-      square.addEventListener('click', (e) => { markSymbol(square.id) }) // NEEDS NEW CALL
+      square.addEventListener('click', (e) => {
+        square.innerText === 'X' ?
+        console.log('Success!') :
+        console.log('Failed =(') ;
+        }
+      )
       board.appendChild(square)
     }
   })()
-  // Function allowing players to mark their symbol on the board, checking for emptiness
-  const markSymbol = (item) => {
-    item.innerText != '' ?
-    console.log(item) :
-    console.log('Failed') ;
-  }
+  
   // Function that adds Reset / Play Again button
 })();
 
