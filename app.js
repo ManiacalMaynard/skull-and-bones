@@ -33,21 +33,27 @@ const gameBoard = (() => {
   // Store gameboard contents as an array
   let squareContent = ['', 'O', ' ', ' ', 'X', ' ', ' ', ' ', 'X']
   // Create the gameboard with a div for each square from squareContent array
-  const createBoard = (() => {
+  const createBoard = () => {
     const board = document.getElementById('game-board')
     for (let i=0; i<9; i++) {
       let square = document.createElement('div')
       square.innerText = squareContent[i].toString(i)
       square.setAttribute('id', 'cell' + i)
-      square.addEventListener('click', (e) => {
-        square.innerText === 'X' ?
-        console.log('Success!') :
-        console.log('Failed =(') ;
+      square.addEventListener('click', () => {
+        if (square.innerText === '') {
+          squareContent.splice(i, 1, 'F')
+          square.innerText = 'Z'
+          console.log(squareContent)
+        } else {
+          console.log('Failed =(')
+        }
         }
       )
       board.appendChild(square)
     }
-  })()
+  }
+  console.log(squareContent)
+  createBoard()
   
   // Function that adds Reset / Play Again button
 })();
