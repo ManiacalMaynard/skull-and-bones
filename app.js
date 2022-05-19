@@ -31,7 +31,7 @@ const gameBoard = (() => {
   const playerTwoSymbol = document.getElementById('portrait-two')
   playerTwoSymbol.innerText = playerOneSymbol.innerText == 'O' ? 'X' : 'O'
   // Store gameboard contents as an array
-  let squareContent = ['', 'O', ' ', ' ', 'X', ' ', ' ', ' ', 'X']
+  let squareContent = ['', '', '', '', '', '', '', '', '']
   // Create the gameboard with a div for each square from squareContent array
   const createBoard = () => {
     const board = document.getElementById('game-board')
@@ -41,8 +41,8 @@ const gameBoard = (() => {
       square.setAttribute('id', 'cell' + i)
       square.addEventListener('click', () => {
         if (square.innerText === '') {
-          squareContent.splice(i, 1, 'F')
-          square.innerText = 'Z'
+          squareContent.splice(i, 1, 'O')
+          square.innerText = 'O'
           console.log(squareContent)
         } else {
           console.log('Failed =(')
